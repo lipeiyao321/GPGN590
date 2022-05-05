@@ -45,12 +45,9 @@ EthernetClient client = server.available();
           client.println("Content-Type: text/html");
           client.println(); // HTML code
           client.print("<center><br><h1>Valves Operator</h1><br><br><br><FORM>");
-          client.print("<P> <INPUT type=\"submit\" name=\"status1\"value=\"ON\">");
+          client.print("<P> <INPUT type=\"submit\" name=\"status1\"value=\"ON\">");// create more bottom with same format but different name and value
           client.print("<P> <INPUT type=\"submit\" name=\"status1\"value=\"OFF\">");
-//          client.print("<P> <INPUT type=\"submit\" name=\"status2\"value=\"2ON\">");
-//          client.print("<P> <INPUT type=\"submit\" name=\"status2\"value=\"2OFF\">");
-//          client.print("<P> <INPUT type=\"submit\" name=\"status3\"value=\"3ON\">");
-//          client.print("<P> <INPUT type=\"submit\" name=\"status3\"value=\"3OFF\">");
+
           client.print("</FORM></center>");
         break;
         }
@@ -67,23 +64,9 @@ EthernetClient client = server.available();
         
         // Did the off button get pressed
         if (buffer.indexOf("GET /?status1=OFF") >= 0)
-          digitalWrite(eightChanRelayIN1, HIGH); 
+          digitalWrite(eightChanRelayIN1, HIGH);
+//for more button showed on the webpage, once name and value created as showed in line 47, make sure the name is corresponded to value.
            
-//        if (buffer.indexOf("GET /?status2=2ON") >= 0)
-//          digitalWrite(eightChanRelayIN2, LOW);
-
-//        
-//        // Did the off button get pressed
-//        if (buffer.indexOf("GET /?status3=2OFF") >= 0)
-//          digitalWrite(eightChanRelayIN2, HIGH); 
-//
-//        if (buffer.indexOf("GET /?status3=3ON") >= 0)
-//          digitalWrite(eightChanRelayIN3, LOW);
-//
-//        
-//        // Did the off button get pressed
-//        if (buffer.indexOf("GET /?status2=3OFF") >= 0)
-//          digitalWrite(eightChanRelayIN3, HIGH); 
         }
         else {
         currentLineIsBlank = false;
